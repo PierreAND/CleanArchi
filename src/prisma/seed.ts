@@ -11,6 +11,20 @@ async function main() {
     create: {
       email: 'johndoe@mail.com',
       name: 'John Doe',
+      posts: {
+        create: [
+          {
+            title: 'Absurde !! Vraiment bof !',
+            content:
+              "Je n'ai pas du tout apprécié la performance des joueurs cette apres midi , quel desastre !",
+          },
+          {
+            title: 'A voir! Absolument splendide ! ',
+            content:
+              "J'ai passé un super moment lors de la projection numero aux Bois Dancé Mamé ! Quelle spectacle ! A ne pas rater ! ",
+          },
+        ],
+      },
     },
   });
 }
