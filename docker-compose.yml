@@ -1,0 +1,26 @@
+version: '3.2'
+services:
+  backend:
+    image: node:19-alpine
+    container_name: backend
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 3000:3000
+    working_dir: /usr/src/app
+    command: npm run start:dev
+    tty: true
+    depends_on:
+      - demodb
+  demodb:
+    image: postgis/postgis:13-master
+    container_name: demodb
+    volumes:
+      - ./db/demodb:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: 'oclock'
+      POSTGRES_PASSWORD: 'secret'  
+      POSTGRES_DB: 'demo'
+    restart: always 
