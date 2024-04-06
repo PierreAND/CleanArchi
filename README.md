@@ -1,6 +1,6 @@
           
         
- ***<p class=" text-center">Clean Archi : Pattern Proxy</p>***
+## Clean Archi : Pattern Proxy
 
 
 ``` run docker compose :  sudo docker compose up ```
