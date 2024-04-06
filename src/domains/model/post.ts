@@ -1,10 +1,10 @@
 export class PostModel {
-    id: number,
-    content: string,
-    CreatedAt: Date,
-    UpdateAt: Date
+  id: number;
+  content: string;
+  CreatedAt: Date;
+  UpdateAt: Date;
 
-    constructor(post: Partial<PostModel>){
-        Object.assign(this, post);
-    }
+  constructor(post: Partial<PostModel>) {
+    Object.assign(this, post);
+  }
 }

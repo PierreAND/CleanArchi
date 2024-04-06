@@ -1,5 +1,5 @@
 export class CreatePostDto {
   title: string;
   content: string;
-  visitorId: number;
+  <i class="fas fa-user-injured    "></i>Id: number;
 }
