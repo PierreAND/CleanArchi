@@ -1,8 +1,10 @@
 export class PostModel {
   id: number;
+  title: string;
   content: string;
-  CreatedAt: Date;
-  UpdateAt: Date;
+  createdAt: Date;
+  updatedAt: Date;
+  userId: number;
 
   constructor(post: Partial<PostModel>) {
     Object.assign(this, post);

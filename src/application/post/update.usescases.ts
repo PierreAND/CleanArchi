@@ -5,7 +5,7 @@ import { CreatePostDto } from 'src/presentation/post/dto/create-post.dto';
 export class UpdateUseCases {
   constructor(private readonly repository: postRepositoryInterface) {}
 
-  async execute(post: CreatePostDto): Promise<PostModel> {
-    return this.repository.update(post);
+  async execute(id: number, post: CreatePostDto): Promise<PostModel> {
+    return this.repository.update(id, post);
   }
 }

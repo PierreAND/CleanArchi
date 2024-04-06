@@ -1,4 +1,4 @@
-import { CreateUsesCasesPost } from 'src/application/post/create.usecases';
+import { CreatePostUseCases } from 'src/application/post/create.usecases';
 import { GetAllPostsUseCases } from 'src/application/post/getAll.usecases';
 import { UpdateUseCases } from 'src/application/post/update.usescases';
 import { Module } from '@nestjs/common';
@@ -11,23 +11,27 @@ import { postRepositoryOrm } from '../repositories/post.repository';
   providers: [
     {
       inject: [postRepositoryOrm],
-      provide: 'GetAllPostsUseCases',
+      provide: 'GetAllPostsUseCasesProxy',
       useFactory: (postRepository: postRepositoryOrm) =>
         new UseCaseProxy(new GetAllPostsUseCases(postRepository)),
     },
     {
       inject: [postRepositoryOrm],
-      provide: 'CreateUseCasesPost',
+      provide: 'CreatePostUseCasesProxy',
       useFactory: (postRepository: postRepositoryOrm) =>
-        new UseCaseProxy(new CreateUsesCasesPost(postRepository)),
+        new UseCaseProxy(new CreatePostUseCases(postRepository)),
     },
     {
       inject: [postRepositoryOrm],
-      provide: 'UpdateUseCases',
+      provide: 'UpdateUseCasesProxy',
       useFactory: (postRepository: postRepositoryOrm) =>
         new UseCaseProxy(new UpdateUseCases(postRepository)),
     },
   ],
-  exports: ['UpdateUseCases', 'CreateUseCasesPost', 'GetAllPostUseCases'],
+  exports: [
+    'GetAllPostsUseCasesProxy',
+    'CreatePostUseCasesProxy',
+    'UpdateUseCasesProxy',
+  ],
 })
 export class PostUseCaseProxyModule {}
